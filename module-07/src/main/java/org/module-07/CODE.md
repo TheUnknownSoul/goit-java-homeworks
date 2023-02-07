@@ -398,12 +398,15 @@ class UniqueCharCounter {
 # Task 13
 
 ```java
+import java.util.Arrays;
+import java.util.List;
+
 class WordDeleterTest {
     public static void main(String[] args) {
         WordDeleter wordDeleter = new WordDeleter();
 
-        //Hello
-        System.out.println(wordDeleter.remove("matajilyh hidi potou ibfe yhypno xiefbidyd ycly", new String[]{"yhypno, ycly, potou, ibfe, hidi"}));
+       
+        System.out.println(wordDeleter.remove("yhypno egces objiqono matajilyh zawofu ibfe", new String[]{"zawofu, egces, yhypno, ibfe"}));
 
     }
 }
@@ -411,17 +414,17 @@ class WordDeleterTest {
 class WordDeleter {
     public String remove(String phrase, String[] words) {
         String[] split = phrase.split("\\s+");
+        List<String> strings = Arrays.asList(words);
         StringBuilder result = new StringBuilder();
-        for (String word : words) {
-            for (String s : split) {
-                if (!word.equals(s) & !word.contains(s)) {
-                    result.append(s).append(" ");
-                }
+        for (String word : split) {
+            if (!strings.contains(word)) {
+                result.append(word).append(" ");
             }
         }
         return result.toString().trim();
     }
 }
+
 ```
 
 # Task 14
