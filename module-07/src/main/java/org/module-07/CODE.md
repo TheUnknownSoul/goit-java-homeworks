@@ -716,7 +716,7 @@ class EmailDetectorTest {
 
 class EmailDetector {
     public boolean isPresent(String text) {
-        return Pattern.compile("\\S{2}@\\S{2}").matcher(text).matches();
+        return Pattern.compile("\\S{2}@\\S{2}").matcher(text).find();
     }
 }
 ```
